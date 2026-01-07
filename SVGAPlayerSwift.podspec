@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   DESC
 
   s.homepage         = 'https://github.com/LangGuangZhou/SVGAPlayer'
-  s.license          = { :type => 'Apache 2.0', :file => 'LICENSE' }
+  # s.license          = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.author           = { 'SVGA' => 'https://github.com/LangGuangZhou' }
   s.source           = { :git => 'https://github.com/LangGuangZhou/SVGAPlayer.git', :tag => s.version.to_s }
 
