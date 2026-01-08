@@ -5,7 +5,7 @@ import zlib
 import CommonCrypto
 
 @objcMembers
-final class SVGAParser: NSObject {
+public final class SVGAParser: NSObject {
 
     // MARK: - Types
 

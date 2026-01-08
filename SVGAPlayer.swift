@@ -18,7 +18,7 @@ import UIKit
 typealias SVGAPlayerDynamicDrawingBlock = @convention(block) (_ layer: CALayer, _ frame: Int) -> Void
 
 @objcMembers
-class SVGAPlayer: UIView {
+public class SVGAPlayer: UIView {
 
     // MARK: - Public
 
