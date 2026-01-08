@@ -11,13 +11,13 @@ final class _FCWeakContainer: NSObject {
 }
 
 @objcMembers
-final class SVGAVideoEntity: NSObject {
+public final class SVGAVideoEntity: NSObject {
 
     // MARK: - Public Properties
 
     var videoSize: CGSize = CGSize(width: 100, height: 100)
     private(set) var FPS: Int = 20
-    private(set) var frames: Int = 0
+    public private(set) var frames: Int = 0
     private(set) var images: [String: UIImage] = [:]
     private(set) var audiosData: [String: Data] = [:]
     private(set) var sprites: [SVGAVideoSpriteEntity] = []

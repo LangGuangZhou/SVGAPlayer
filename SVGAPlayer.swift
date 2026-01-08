@@ -9,7 +9,7 @@ import UIKit
 //
 //@end
 
-@objc protocol SVGAPlayerDelegate: NSObjectProtocol {
+@objc public protocol SVGAPlayerDelegate: NSObjectProtocol {
     @objc optional func svgaPlayerDidFinishedAnimation(_ player: SVGAPlayer)
     @objc optional func svgaPlayerDidAnimatedToFrame(_ frame: Int, player: SVGAPlayer)
     @objc optional func svgaPlayerDidAnimatedToPercentage(_ percentage: CGFloat)
@@ -22,7 +22,7 @@ public class SVGAPlayer: UIView {
 
     // MARK: - Public
 
-    var videoItem: SVGAVideoEntity? {
+    public var videoItem: SVGAVideoEntity? {
         didSet {
             currentRange = NSRange(location: 0, length: videoItem?.frames ?? 0)
             reversing = false
@@ -35,12 +35,12 @@ public class SVGAPlayer: UIView {
         }
     }
 
-    var clearsAfterStop: Bool = true
-    var loops: Int = 0
-    var fillMode: String = ""
+    public var clearsAfterStop: Bool = true
+    public var loops: Int = 0
+    public var fillMode: String = ""
 
-    weak var delegate: NSObjectProtocol?
-    var finishAnimation: (() -> Void)?
+    public weak var delegate: NSObjectProtocol?
+    public var finishAnimation: (() -> Void)?
 
     // Dynamic
     private(set) var dynamicObjects: [String: UIImage] = [:]
@@ -80,7 +80,7 @@ public class SVGAPlayer: UIView {
 
     // MARK: - Control
 
-    func startAnimation() {
+    public func startAnimation() {
         guard let video = videoItem else {
             NSLog("videoItem could not be nil!")
             return
@@ -97,7 +97,7 @@ public class SVGAPlayer: UIView {
     }
 
     @objc(startAnimationWithRange:reverse:)
-    func startAnimation(range: NSRange, reverse: Bool) {
+    public func startAnimation(range: NSRange, reverse: Bool) {
         currentRange = range
         reversing = reverse
         if reverse {
@@ -108,15 +108,15 @@ public class SVGAPlayer: UIView {
         startAnimation()
     }
 
-    func pauseAnimation() {
+    public func pauseAnimation() {
         stopAnimation(false)
     }
 
-    func stopAnimation() {
+    public func stopAnimation() {
         stopAnimation(clearsAfterStop)
     }
 
-    func stopAnimation(_ isClear: Bool) {
+    public func stopAnimation(_ isClear: Bool) {
         forwardAnimating = false
         displayLink?.invalidate()
         if isClear {
@@ -126,7 +126,7 @@ public class SVGAPlayer: UIView {
         displayLink = nil
     }
 
-    func clear() {
+    public func clear() {
         contentLayers.removeAll()
         drawLayer.removeFromSuperlayer()
     }
@@ -140,7 +140,7 @@ public class SVGAPlayer: UIView {
     // MARK: - Seek
 
     @objc(stepToFrame:andPlay:)
-    func stepToFrame(_ frame: Int, andPlay: Bool) {
+    public func stepToFrame(_ frame: Int, andPlay: Bool) {
         guard let video = videoItem, frame >= 0, frame < video.frames else { return }
         pauseAnimation()
         currentFrame = frame
@@ -155,7 +155,7 @@ public class SVGAPlayer: UIView {
     }
 
     @objc(stepToPercentage:andPlay:)
-    func stepToPercentage(_ percentage: CGFloat, andPlay: Bool) {
+    public func stepToPercentage(_ percentage: CGFloat, andPlay: Bool) {
         guard let video = videoItem else { return }
         var frame = Int(CGFloat(video.frames) * percentage)
         if frame >= video.frames && frame > 0 {
@@ -166,7 +166,7 @@ public class SVGAPlayer: UIView {
 
     // MARK: - Build Layers
 
-    func draw() {
+    public func draw() {
         guard let video = videoItem else { return }
         let root = CALayer()
         root.frame = CGRect(x: 0, y: 0, width: video.videoSize.width, height: video.videoSize.height)
@@ -240,7 +240,7 @@ public class SVGAPlayer: UIView {
 
     // MARK: - Layout
 
-    func resize() {
+    public func resize() {
         guard let video = videoItem else { return }
         switch contentMode {
         case .scaleAspectFit:
@@ -302,7 +302,7 @@ public class SVGAPlayer: UIView {
         }
     }
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         resize()
     }

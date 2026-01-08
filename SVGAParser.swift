@@ -9,8 +9,8 @@ public final class SVGAParser: NSObject {
 
     // MARK: - Types
 
-    typealias SVGACompletionBlock = (SVGAVideoEntity?) -> Void
-    typealias SVGAFailureBlock = (NSError?) -> Void
+    public typealias SVGACompletionBlock = (SVGAVideoEntity?) -> Void
+    public typealias SVGAFailureBlock = (NSError?) -> Void
 
     // MARK: - Public Properties
 
@@ -37,7 +37,7 @@ public final class SVGAParser: NSObject {
 
     // MARK: - Public APIs
     @objc(parseWithURL:completionBlock:failureBlock:)
-    func parse(with url: URL,
+    public func parse(with url: URL,
                completionBlock: @escaping SVGACompletionBlock,
                failureBlock: SVGAFailureBlock? = nil) {
         let request = URLRequest(url: url,
@@ -49,7 +49,7 @@ public final class SVGAParser: NSObject {
     }
     
     @objc(parseWithNamed:inBundle:completionBlock:failureBlock:)
-    func parse(withNamed named: String,
+    public func parse(withNamed named: String,
                in bundle: Bundle?,
                completionBlock: @escaping SVGACompletionBlock,
                failureBlock: SVGAFailureBlock? = nil) {
