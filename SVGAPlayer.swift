@@ -192,12 +192,23 @@ public class SVGAPlayer: UIView {
                 tempHostLayers[imageKey] = host
             } else {
                 if let matteKey = sprite.matteKey, !matteKey.isEmpty {
-                    let host = tempHostLayers[matteKey] ?? CALayer()
-                    if tempHostLayers[matteKey] == nil { tempHostLayers[matteKey] = host }
-                    host.addSublayer(contentLayer)
-                    if idx == 0 || matteKey != video.sprites[idx - 1].matteKey {
-                        root.addSublayer(host)
+                    if let host = tempHostLayers[matteKey] {
+                        host.addSublayer(contentLayer)
+                        // Check if this is the first sprite with this matteKey
+                        // Match Objective-C logic: add hostLayer when matteKey differs from previous sprite
+                        let shouldAddHost: Bool
+                        if idx == 0 {
+                            shouldAddHost = true
+                        } else {
+                            let prevMatteKey = video.sprites[idx - 1].matteKey
+                            shouldAddHost = matteKey != prevMatteKey
+                        }
+                        if shouldAddHost {
+                            root.addSublayer(host)
+                        }
                     }
+                    // Note: If hostLayer doesn't exist, contentLayer won't be added anywhere
+                    // This matches Objective-C behavior where nil hostLayer operations are no-ops
                 } else {
                     root.addSublayer(contentLayer)
                 }
