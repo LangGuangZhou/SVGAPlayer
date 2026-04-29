@@ -50,7 +50,7 @@ final class ViewController: UIViewController {
     }
 
     private func playLocalSVGA() {
-        parser.parse(withNamed: "rocket6.svga", in: .main) { [weak self] videoItem in
+        parser.parse(withNamed: "rocket6", in: .main) { [weak self] videoItem in
             guard let self, let videoItem else {
                 self?.statusLabel.text = "Failed to load rocket6.svga"
                 return
