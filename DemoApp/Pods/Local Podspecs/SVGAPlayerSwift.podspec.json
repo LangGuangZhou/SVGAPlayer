@@ -1,0 +1,56 @@
+{
+  "name": "SVGAPlayerSwift",
+  "version": "1.0.1",
+  "summary": "SVGA Player for iOS/macOS (Swift Implementation)",
+  "description": "SVGAPlayerSwift is a lightweight animation renderer written in Swift. You use tools to export .svga files from Adobe Animate (formerly Flash) or After Effects, and then use SVGAPlayerSwift to render animation on mobile application.",
+  "homepage": "https://github.com/LangGuangZhou/SVGAPlayer",
+  "authors": {
+    "SVGA": "https://github.com/LangGuangZhou"
+  },
+  "source": {
+    "git": "https://github.com/LangGuangZhou/SVGAPlayer.git",
+    "tag": "1.0.1"
+  },
+  "platforms": {
+    "ios": "15.0",
+    "osx": "10.11"
+  },
+  "requires_arc": true,
+  "default_subspecs": [
+    "Core",
+    "pbobjc"
+  ],
+  "frameworks": [
+    "UIKit",
+    "Foundation",
+    "AVFoundation",
+    "QuartzCore"
+  ],
+  "libraries": [
+    "z",
+    "c++"
+  ],
+  "dependencies": {
+    "SSZipArchive": [
+      "~> 2.4"
+    ],
+    "Protobuf": [
+      "~> 3.0"
+    ]
+  },
+  "swift_versions": "5.0",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "*.{swift,h,m}",
+      "requires_arc": true
+    },
+    {
+      "name": "pbobjc",
+      "source_files": "pbobjc/*.{h,m}",
+      "requires_arc": false,
+      "public_header_files": "pbobjc/*.h"
+    }
+  ],
+  "swift_version": "5.0"
+}

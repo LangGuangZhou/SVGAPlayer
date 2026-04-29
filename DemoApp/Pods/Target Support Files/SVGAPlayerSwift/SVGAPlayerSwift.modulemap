@@ -1,0 +1,6 @@
+framework module SVGAPlayerSwift {
+  umbrella header "SVGAPlayerSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

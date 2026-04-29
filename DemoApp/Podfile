@@ -1,0 +1,8 @@
+platform :ios, '15.0'
+use_frameworks!
+
+project 'DemoApp.xcodeproj'
+
+target 'DemoApp' do
+  pod 'SVGAPlayerSwift', :path => '..'
+end
