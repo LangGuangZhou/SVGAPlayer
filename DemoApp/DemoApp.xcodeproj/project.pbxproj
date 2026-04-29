@@ -15,10 +15,11 @@
 
 /* Begin PBXFileReference section */
 		068C60977E67D0120980618B /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
-		154FAE636D5E23DF886F3868 /* DemoApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		154FAE636D5E23DF886F3868 /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55BCB6BDAEF311C5CB2A955D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		59B7B920014474479FDA2A8E /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
 		8F379FC8AC708F865AEA1CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DC522C352FA242B600C39F79 /* rocket6.svga */ = {isa = PBXFileReference; lastKnownFileType = file; path = rocket6.svga; sourceTree = "<group>"; };
 		E712B66A3E5AA7A5806F9A88 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFA2FD9D93F6F8E311E7B4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FC68AC0096062EBCEB0A5566 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		440193E401A4E83EEA00B144 = {
 			isa = PBXGroup;
 			children = (
+				DC522C362FA242B600C39F79 /* Resources */,
 				9B7C8DD710251D4E68BCE537 /* Sources */,
 				D4CC74EBFCAF08A1E61D64BF /* Products */,
 				F24BF168179CF41809FF1FFF /* Pods */,
@@ -73,13 +75,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		DC522C362FA242B600C39F79 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DC522C352FA242B600C39F79 /* rocket6.svga */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F24BF168179CF41809FF1FFF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				068C60977E67D0120980618B /* Pods-DemoApp.debug.xcconfig */,
 				59B7B920014474479FDA2A8E /* Pods-DemoApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -146,9 +155,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
